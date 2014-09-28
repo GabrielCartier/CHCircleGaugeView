@@ -11,7 +11,7 @@ Pod::Spec.new do |s|
   s.social_media_url = 'https://twitter.com/xzolian'
   s.screenshot = "https://github.com/chaione/CHCircleGauge/raw/master/miscellaneous/screenshots/CHCircleGaugeView_ExampleAnimation02.gif"
   s.platform     = :ios
-  s.source       = { :git => "https://github.com/chaione/CHCircleGaugeView.git", :tag => 'v1.1.0' }
+  s.source       = { :git => "https://github.com/GabrielCartier/CHCircleGaugeView", :tag => 'v1.1.1' }
   s.source_files = "CHCircleGaugeView/*.{h,m}"
   s.requires_arc = true
 end
