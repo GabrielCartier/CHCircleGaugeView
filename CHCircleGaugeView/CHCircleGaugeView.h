@@ -89,6 +89,13 @@ typedef NS_ENUM(NSInteger, CHCircleGaugeStyle) {
  */
 - (void)setValue:(CGFloat)value animated:(BOOL)animated assignLabel:(BOOL)assignLabel;
 
+/**
+ *  Set the value label in the middle
+ *
+ *  @param value the value
+ */
+- (void)setValueLabel:(CGFloat)value;
+
 /** @name Configuring the gauge */
 
 /**
@@ -150,10 +157,5 @@ typedef NS_ENUM(NSInteger, CHCircleGaugeStyle) {
  Determines how the gauge is drawn relative to the track. Defaults to `CHCircleGaugeStyleInside`.
  */
 @property(nonatomic, assign) CHCircleGaugeStyle gaugeStyle;
-
-/**
- *  To modify the label text without changing the value
- */
-@property(nonatomic, strong) UILabel *valueTextLabel;
 
 @end

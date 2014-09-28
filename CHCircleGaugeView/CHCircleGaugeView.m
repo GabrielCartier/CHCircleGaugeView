@@ -41,6 +41,7 @@ static NSString *const CHKeyDefaultNoAnswersText = @"%";
 
 @property(nonatomic, strong) CAShapeLayer *trackCircleLayer;
 @property(nonatomic, strong) CAShapeLayer *gaugeCircleLayer;
+@property(nonatomic, strong) UILabel *valueTextLabel;
 
 @end
 
@@ -140,6 +141,10 @@ static NSString *const CHKeyDefaultNoAnswersText = @"%";
         }
         }
     }
+}
+
+- (void)setValueLabel:(CGFloat)value {
+    self.valueTextLabel.attributedText = [self formattedStringForValue:value];
 }
 
 - (void)setValue:(CGFloat)value {
