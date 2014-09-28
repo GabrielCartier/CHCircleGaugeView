@@ -67,87 +67,93 @@ typedef NS_ENUM(NSInteger, CHCircleGaugeStyle) {
 /**
  The state of the gauge.
  */
-@property (nonatomic, assign) CHCircleGaugeViewState state;
+@property(nonatomic, assign) CHCircleGaugeViewState state;
 
 /**
  Contains the current value. Setting this property will change the state of the control to `CHCircleGaugeViewStateScore`.
  */
-@property (nonatomic, assign) CGFloat value;
+@property(nonatomic, assign) CGFloat value;
 
 /**
  Sets the value the gauge should represent, with optional animation of the change.
- 
- The current progress is represented by a floating-point value between 0.0 and 1.0, 
- inclusive, where 1.0 indicates the completion of the task. The default value is 0.0. 
+
+ The current progress is represented by a floating-point value between 0.0 and 1.0,
+ inclusive, where 1.0 indicates the completion of the task. The default value is 0.0.
  Values less than 0.0 and greater than 1.0 are pinned to those limits.
- 
+
  Calling this will change the state of the control to `CHCircleGaugeViewStateScore`.
- 
+
  @param value The new gauge value.
  @param animated `YES` if the change should be animated, `NO` if the change should happen immediately.
+ @param assignLabel `YES` if the label should be updated with value, `NO` if not.
  */
-- (void)setValue:(CGFloat)value animated:(BOOL)animated;
+- (void)setValue:(CGFloat)value animated:(BOOL)animated assignLabel:(BOOL)assignLabel;
 
 /** @name Configuring the gauge */
 
 /**
  The color shown for the portion of the gauge that is always filled.
  */
-@property (nonatomic, strong) UIColor *trackTintColor;
+@property(nonatomic, strong) UIColor *trackTintColor;
 
 /**
  The color shown on top of `trackTintColor` for the portion of the gauge that varies based on the `value` property.
  */
-@property (nonatomic, strong) UIColor *gaugeTintColor;
+@property(nonatomic, strong) UIColor *gaugeTintColor;
 
 /**
  The color of the text.
- 
- The default value for this property is a black color (set through the blackColor class method of UIColor). The value for the property 
+
+ The default value for this property is a black color (set through the blackColor class method of UIColor). The value for the property
  can only be set to a non-nil value; setting this property to nil raises an exception.
  */
-@property (nonatomic, strong) UIColor *textColor;
+@property(nonatomic, strong) UIColor *textColor;
 
 /**
  The font of the text.
- 
- The default value for this property is the system font at a size of 32 points (using the systemFontOfSize: class method of UIFont). 
+
+ The default value for this property is the system font at a size of 32 points (using the systemFontOfSize: class method of UIFont).
  The value for the property can only be set to a non-nil value; setting this property to nil raises an exception.
  */
-@property (nonatomic, strong) UIFont *font;
+@property(nonatomic, strong) UIFont *font;
 
 /**
  The width for the portion of the gauge that is always filled. Defaults to a value of 0.5.
  */
-@property (nonatomic, assign) CGFloat trackWidth;
+@property(nonatomic, assign) CGFloat trackWidth;
 
 /**
  The width for the portion of the gauge that varies based on the `value` property. Defaults to a value of 2.
 */
-@property (nonatomic, assign) CGFloat gaugeWidth;
+@property(nonatomic, assign) CGFloat gaugeWidth;
 
 /**
  String that is a suffix on the `value`. This string is meant to be just a few characters long. Defaults to `nil`.
- 
+
  @warning The label backing the string does not auto-shrink, set a smaller font if the text gets truncated.
- 
+
  @see font
  */
-@property (nonatomic, copy) NSString *unitsString;
+@property(nonatomic, copy) NSString *unitsString;
 
 /**
  The text shown when the state of the gauge is `CHCircleGaugeViewStateNA`. Defaults to "n/a".
  */
-@property (nonatomic, copy) NSString *notApplicableString;
+@property(nonatomic, copy) NSString *notApplicableString;
 
 /**
  The text shown when the state of the gauge is `CHCircleGaugeViewStatePercentSign`. Defaults to "%".
  */
-@property (nonatomic, copy) NSString *noDataString;
+@property(nonatomic, copy) NSString *noDataString;
 
 /**
  Determines how the gauge is drawn relative to the track. Defaults to `CHCircleGaugeStyleInside`.
  */
-@property (nonatomic, assign) CHCircleGaugeStyle gaugeStyle;
+@property(nonatomic, assign) CHCircleGaugeStyle gaugeStyle;
+
+/**
+ *  To modify the label text without changing the value
+ */
+@property(nonatomic, strong) UILabel *valueTextLabel;
 
 @end
